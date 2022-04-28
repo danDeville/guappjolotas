@@ -19,7 +19,7 @@ const StyledBadge = styled(Badge)(({ theme }) => ({
 }))
 
 const Header = (props) => {
-  const [toggle, setToggle] = useState(false)
+  // const [toggle, setToggle] = useState(false)
   // const [toggleOrders, setToggleOrders] = useState(false)
   const { state } = useContext(AppContext)
 
