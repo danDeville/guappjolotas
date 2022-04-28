@@ -64,5 +64,5 @@ _Para la construcción y desarrollo de esta aplicación se utilizaron las siguie
 Este proyecto está bajo Licencia MIT
 
 ---
-Desarrollado con 🖤 por [Villanuevand](https://github.com/Villanuevand) 🤘😎🤘
+Desarrollado con 🖤 por [danDeville](github.com/danDeville)) 🤘😎🤘
 
