@@ -1,5 +1,5 @@
 import React,{ useState } from 'react'
-import {Link, NavLink, useNavigate} from 'react-router-dom'
+import { useNavigate } from 'react-router-dom'
 import { toast } from 'react-toastify'
 
 const Login = () => {

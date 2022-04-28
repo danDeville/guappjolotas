@@ -20,12 +20,12 @@ const StyledBadge = styled(Badge)(({ theme }) => ({
 
 const Header = (props) => {
   const [toggle, setToggle] = useState(false)
-  const [toggleOrders, setToggleOrders] = useState(false)
+  // const [toggleOrders, setToggleOrders] = useState(false)
   const { state } = useContext(AppContext)
 
-  const handleToggle = () => {
-    setToggle(!toggle)
-  }
+  // const handleToggle = () => {
+  //   setToggle(!toggle)
+  // }
 
   return (
     <StyledNavbar>
@@ -57,8 +57,4 @@ const Header = (props) => {
     </StyledNavbar>
   )
 }
-
-  {/* <div className="navbar-shopping-cart-number">
-    {state.cart.length}
-  </div> */}
 export default Header
