@@ -1,3 +1,4 @@
+// Base
 import { useEffect, useState } from 'react'
 import axios from 'axios'
 
@@ -5,7 +6,6 @@ const url = 'https://backend-guappjolotas.herokuapp.com/productos/'
 
 const GetByCategory = (category) => {
   const [productos, setProductos] = useState([])
-
 
   const getProductos = async () => {
     const reponse = await axios.get(url)

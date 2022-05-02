@@ -1,40 +1,100 @@
-import React from "react";
+// Base
+import React, { useState } from "react"
+
+// Components
+import Login from "./Login"
+
+// Material UI
+import { Alert } from "@mui/material"
+
+// Styles
+import {
+  LoginContainer,
+  StyleButtonForm,
+  StyleContainerRedirect,
+  StyleInput,
+  StyleLabel,
+  StyleLink,
+  StyleTitle
+} from "../styles/LoginStyles"
 
 const CreateAccount = () => {
+  const [name, setName] = useState("")
+  const [email, setEmail] = useState("")
+  const [password, setPassword] = useState("")
+  const [flag, setFlag] = useState(false)
+  const [login, setLogin] = useState(true)
+
+  const handleSubmit = (e) => {
+    e.preventDefault()
+    if (name === "" || email === "" || password === "") {
+      setFlag(true)
+    } else {
+      setFlag(false)
+      localStorage.setItem("email", JSON.stringify(email))
+      localStorage.setItem("password", JSON.stringify(password))
+      console.log("Guardado en localStorage")
+
+      setLogin(!login)
+    }
+  }
+
+  const handleClick = () => {
+    setLogin(!login)
+  }
+
   return (
-    <div className="CreateAccount">
-      <div className="CreateAccount-container">
-        <h1 className="title">My Account</h1>
+    <>
+      {login ? (
+        <LoginContainer>
+          <StyleTitle>
+            Regístrate
+          </StyleTitle>
 
-        <form action="" method="post" className="form">
-          <div>
-            <label for="name" className="label">Name</label>
-            <input
-              type="text"
-              id="name"
-              placeholder="name"
-              required
-              className="input input-name"
-            />
+          <form onSubmit={handleSubmit}>
+            <div>
+              <StyleLabel>Nombre</StyleLabel>
+              <StyleInput
+                type="text"
+                placeholder="Ingrese su nombre"
+                onChange={(e) => setName(e.target.value)}
+              />
 
-            <label for="password" className="label">Password</label>
-            <input
-              type="password"
-              id="password"
-              placeholder="*********"
-              required
-              className="input input-password"
-            />
-          </div>
+              <StyleLabel>Email</StyleLabel>
+              <StyleInput
+                type="email"
+                placeholder="Ingrese su email"
+                onChange={(e) => setEmail(e.target.value)}
+              />
 
-          <input
-            type="submit"
-            value="Create"
-            className="primary-button login-button"
-          />
-        </form>
-      </div>
-    </div>
+              <StyleLabel>Contraseña</StyleLabel>
+              <StyleInput
+                type="password"
+                placeholder="*********"
+                onChange={(e) => setPassword(e.target.value)}
+              />
+            </div>
+
+            <StyleButtonForm type="submit">
+              Crear Cuenta
+            </StyleButtonForm>
+
+            {flag && (
+              <Alert severity="error">
+                Complete los campos del formulario
+              </Alert>
+            )}
+          </form>
+
+          <StyleContainerRedirect>
+            <p>¿Ya tienes una cuenta?</p>
+            <StyleLink onClick={handleClick}>Iniciar Sesión</StyleLink>
+          </StyleContainerRedirect>
+        </LoginContainer>
+      ) : (
+        <Login />
+      )}
+    </>
   )
 }
 

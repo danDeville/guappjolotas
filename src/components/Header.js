@@ -1,13 +1,14 @@
-import React,{ useContext } from "react"
-import AppContext from '../context/AppContext'
+// Base
+import React from "react"
 
-// import Menu from './Menu'
-// import MyOrder from '../containers/MyOrder'
-
-import { StyledList, StyledNavbar } from '../styles/NavbarStyle'
-import { styled } from '@mui/material/styles'
+// Material UI
 import Badge from '@mui/material/Badge'
 import ShoppingCartOutlinedIcon from '@mui/icons-material/ShoppingCartOutlined'
+
+// Styles
+import { StyledList, StyledNavbar } from '../styles/NavbarStyle'
+import { styled } from '@mui/material/styles'
+
 
 const StyledBadge = styled(Badge)(({ theme }) => ({
   '& .MuiBadge-badge': {
@@ -19,14 +20,6 @@ const StyledBadge = styled(Badge)(({ theme }) => ({
 }))
 
 const Header = (props) => {
-  // const [toggle, setToggle] = useState(false)
-  // const [toggleOrders, setToggleOrders] = useState(false)
-  const { state } = useContext(AppContext)
-
-  // const handleToggle = () => {
-  //   setToggle(!toggle)
-  // }
-
   return (
     <StyledNavbar>
       <img
@@ -36,24 +29,17 @@ const Header = (props) => {
       />
 
       <StyledList>
-        {/* <li className="navbar-email" onClick={handleToggle}>
-          me@dandeville.com
-        </li> */}
-
         <li
           className="navbar-shopping-cart"
-          // onClick={() => setToggleOrders(!toggleOrders)}
           onClick={() => props.abrirDrawer()}
         >
-          <ShoppingCartOutlinedIcon color="action"/>
-          {state.cart.length > 0
+          <ShoppingCartOutlinedIcon color="action" />
+          {/* {state.cart.length > 0
             ? <StyledBadge badgeContent={state.cart.length} color="primary" />
             : null
-          }
+          } */}
         </li>
       </StyledList>
-      {/* {toggle && <Menu />}
-      {toggleOrders && <MyOrder />} */}
     </StyledNavbar>
   )
 }

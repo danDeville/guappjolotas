@@ -1,31 +1,51 @@
-import React, { useContext } from 'react'
-import AppContext from '../context/AppContext'
+// Base
+import React from 'react'
 
-const OrderItem = ({ product }) => {
-	const {removeFromCart} = useContext(AppContext)
+import { Button, ButtonGroup } from '@mui/material'
 
-	const handleRemove = product => {
-		removeFromCart(product)
-	}
+// Styles
+import {
+	StyleDeleteItem,
+	StyleOrderItemContainer,
+	StyleOrderItemImg,
+	StyleOrderItemInfo,
+	StyleOrderItemLeft,
+	StyleOrderItemName,
+	StyleOrderItemPrice,
+	StyleOrderItemUnd
+} from '../styles/OrdenItemStyle'
 
+
+const OrderItem = ({ product, children }) => {
 	return (
-		<div className="OrderItem">
-			<figure>
-				<img
-          src={product.images}
-          alt={product.title}
-        />
-			</figure>
+		<StyleOrderItemContainer>
+			<StyleDeleteItem>
+				{children}
+			</StyleDeleteItem>
 
-			<p>{product.title}</p>
-			<p>{product.price}</p>
-			<img
-				src="./icons/icon_close.png"
-				alt="close"
-				onClick={() => handleRemove(product)}
-			/>
-		</div>
-	);
+			<StyleOrderItemLeft>
+				<StyleOrderItemImg
+					src={product.imagen}
+					alt={product.nombre}
+				/>
+
+				<StyleOrderItemInfo>
+					<StyleOrderItemName>
+						{product.nombre}
+					</StyleOrderItemName>
+
+					<StyleOrderItemUnd>
+						X{product.cantidad}
+					</StyleOrderItemUnd>
+				</StyleOrderItemInfo>
+			</StyleOrderItemLeft>
+			<StyleOrderItemPrice>
+				{
+					`$ ${Number(product.precio) * Number(product.cantidad)} MXN`
+				}
+			</StyleOrderItemPrice>
+		</StyleOrderItemContainer>
+	)
 }
 
 export default OrderItem

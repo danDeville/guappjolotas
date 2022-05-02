@@ -1,73 +1,80 @@
-import React,{ useState } from 'react'
-import { useNavigate } from 'react-router-dom'
-import { toast } from 'react-toastify'
+// Base
+import React, { useState } from "react"
+import { useNavigate } from "react-router-dom"
+
+// Material UI
+import { Alert } from "@mui/material"
+
+// Styles
+import {
+  LoginContainer,
+  StyleButtonForm,
+  StyleForm, StyleInput,
+  StyleLabel,
+  StyleTitle
+} from "../styles/LoginStyles"
 
 const Login = () => {
   const navigate = useNavigate()
-  const [email, setEmail] = useState('')
-  const [password, setPassword] = useState('')
-  const userName = localStorage.getItem('email')
-  ? localStorage.getItem('email')
-  : 'admin@admin.com'
+  const [emailauth, setEmailauth] = useState("")
+  const [passwordauth, setPasswordauth] = useState("")
+  const [flag, setFlag] = useState(false)
+  const [home, setHome] = useState(true)
 
-  const userPassword = localStorage.getItem('password')
-  ? localStorage.getItem('password')
-  : 'admin'
+  const handleLogin = (e) => {
+    e.preventDefault()
 
-  const handleSubmit = (event) => {
-    event.preventDefault()
+    let mail = localStorage.getItem("email").replace(/"/g, "")
+    let key = localStorage.getItem("password").replace(/"/g, "")
 
-    if (email === userName && password === userPassword) {
-      toast.success('Login Successful')
-      navigate('/')
-    }else {
-      toast.error('Login Failed')
+    if (!emailauth || !passwordauth) {
+      setFlag(true)
+      console.log("Faltan datos")
+    } else if (passwordauth !== key || emailauth !== mail) {
+      setFlag(true)
+      console.log("Datos incorrectos")
+    } else {
+      setHome(!home)
+      setFlag(false)
     }
   }
 
   return (
-    <div className="Login">
-      <div className="form-container">
-        <form>
-          <label htmlFor="username" className="label">Email Address</label>
-          <input
-            type="text"
-            value={email}
-            // name="Username"
-            placeholder="dandeville@email.com"
-            // required
-            className="input input-email"
-            onChange={({ target }) => setEmail(target.value)}
-          />
+    <>
+      {home ? (
+        <LoginContainer>
+          <StyleTitle>Iniciar Sesión</StyleTitle>
 
-          <label htmlFor="password" className="label">Password</label>
-          <input
-            type="password"
-            value={password}
-            // name="Password"
-            placeholder="*********"
-            // required
-            className="input input-password"
-            onChange={({ target }) => setPassword(target.value)}
-          />
+          <StyleForm onSubmit={handleLogin}>
+            <StyleLabel>Email</StyleLabel>
+            <StyleInput
+              type="text"
+              placeholder="Ingrese su email"
+              onChange={(e) => setEmailauth(e.target.value)}
+            />
 
-          <button
-            className="primary-button login-button"
-            onClick={handleSubmit}
-          >
-            Log In
-          </button>
+            <StyleLabel>Password</StyleLabel>
+            <StyleInput
+              type="password"
+              placeholder="*********"
+              onChange={(e) => setPasswordauth(e.target.value)}
+            />
 
-          <a href="/">Forgot my password</a>
-        </form>
+            <StyleButtonForm type="submit">
+              Iniciar Sesión
+            </StyleButtonForm>
 
-        <button
-          className="secondary-button signup-button"
-        >
-          Sign Up
-        </button>
-      </div>
-    </div>
+            {flag && (
+              <Alert severity="error">
+                Complete los campos del formulario
+              </Alert>
+            )}
+          </StyleForm>
+        </LoginContainer>
+      ) : (
+        navigate("/home")
+      )}
+    </>
   )
 }
 

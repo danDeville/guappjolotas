@@ -1,4 +1,7 @@
+// Base
 import React from 'react'
+
+// Components
 import ListsProduct from './ListsProduct'
 
 const BedidasListar = () => {

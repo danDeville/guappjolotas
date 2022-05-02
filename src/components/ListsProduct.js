@@ -1,5 +1,10 @@
+// Base
 import React from 'react'
+
+// Utils
 import GetByCategory from '../selectors/getByCategory'
+
+// Components
 import CardProduct from './CardProduct'
 
 const ListsProduct = ({ category }) => {

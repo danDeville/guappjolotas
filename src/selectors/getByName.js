@@ -1,10 +1,10 @@
 // Base
-import React, { useEffect, useState } from 'react'
 import axios from 'axios'
+import { useEffect, useState } from 'react'
 
 const url = 'https://backend-guappjolotas.herokuapp.com/productos/'
 
-const GetById = (id) => {
+const GetByName = (name = '') => {
   const [productos, setProductos] = useState([])
 
   const getProductos = async () => {
@@ -16,9 +16,9 @@ const GetById = (id) => {
     getProductos()
   }, [])
 
-  productos.find(producto => producto.id === id)
+  name = name.toLowerCase()
 
-  return productos
+  return productos.filter(producto => producto.nombre.toLowerCase().includes(name))
 }
 
-export default GetById
+export default GetByName

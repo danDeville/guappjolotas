@@ -12,7 +12,11 @@ export const ContainerDrawerStyles = styled.div`
   width: 100vw;
   height: 100vh;
   padding: 24px;
-  background-color: ${backgroundColor}
+  background-color: ${backgroundColor};
+
+  @media (min-width: 600px) {
+    width: 550px;
+  }
 `
 
 export const StyleHeaderCart = styled.header`

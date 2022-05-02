@@ -1,4 +1,7 @@
+// React
 import React from 'react'
+
+// Components
 import ListsProduct from './ListsProduct'
 
 const TamalesListar = () => {

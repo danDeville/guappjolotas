@@ -1,3 +1,4 @@
+// Base
 import styled from "styled-components"
 
 export const StyledHeroTitle = styled.h1`

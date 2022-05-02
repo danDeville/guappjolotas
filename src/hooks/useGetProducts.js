@@ -1,4 +1,5 @@
-import {useEffect , useState } from 'react'
+// Base
+import { useEffect, useState } from 'react'
 import axios from 'axios'
 
 const useGetData = (url) => {
@@ -10,7 +11,7 @@ const useGetData = (url) => {
 
   useEffect(() => {
     getData()
-  },[])
+  }, [])
 
   return productos
 }

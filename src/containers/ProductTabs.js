@@ -1,5 +1,5 @@
 // Base
-import React,{ useState } from "react"
+import React, { useState } from "react"
 
 // Components
 import GuajolotasListar from '../components/GuajolotasListar'
@@ -19,6 +19,7 @@ import Typography from '@mui/material/Typography'
 import Box from '@mui/material/Box'
 import Grid from '@mui/material/Grid'
 
+// Styles
 const StyleContentList = styled(SwipeableViews)(({ theme }) => ({
   padding: theme.spacing(0)
 }))
@@ -77,7 +78,7 @@ const ProductTabs = () => {
         <Tabs
           value={value}
           onChange={handleChange}
-          indicatorColor= 'primary'
+          indicatorColor='primary'
           textColor="primary"
           variant="fullWidth"
           aria-label="full width tabs example"
@@ -92,7 +93,7 @@ const ProductTabs = () => {
         axis={theme.direction === 'rtl' ? 'x-reverse' : 'x'}
         index={value}
         onChangeIndex={handleChangeIndex}
-        style={{ margin: '24px 0'}}
+        style={{ margin: '24px 0' }}
       >
         <div value={value} index={0} dir={theme.direction}>
           <Grid container spacing={3}>
@@ -114,7 +115,7 @@ const ProductTabs = () => {
           <Grid container spacing={3}>
             <Grid item xs={12}>
               <TamalesListar />
-          </Grid>
+            </Grid>
           </Grid>
         </div>
       </StyleContentList>

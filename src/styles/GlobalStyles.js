@@ -4,4 +4,4 @@ export const secondaryColor = "#0D0D0D"
 
 export const tertiaryColor = "#A3E0D8"
 
-export const backgroundColor = "#E5E5E5"
+export const backgroundColor = "#f2f2f2"

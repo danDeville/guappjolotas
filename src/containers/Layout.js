@@ -1,23 +1,14 @@
-import React,{ useState } from "react"
-import Header from '../components/Header'
-import DrawerCart from "../components/DrawerCart"
+// Base
+import React from "react"
+
+// Style
+import { LayoutStyle } from "../styles/LayoutStyle"
 
 const Layout = ({ children }) => {
-	const [abrir, setAbrir] = useState(false)
-  const  abrirDrawer = () => {
-    setAbrir(!abrir)
-  }
-
 	return (
-		<div className="Layout">
-			<Header abrirDrawer={abrirDrawer}/>
-			<DrawerCart
-				open={abrir}
-				onClose={abrirDrawer}
-			/>
-
+		<LayoutStyle>
 			{children}
-		</div>
+		</LayoutStyle>
 	)
 }
 

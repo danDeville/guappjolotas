@@ -1,6 +1,7 @@
 // Base
-import React from 'react'
+import React, { useContext } from 'react'
 import { Link } from 'react-router-dom'
+
 
 // Styles
 import {
@@ -8,29 +9,28 @@ import {
   StyledCard,
   StyleTitleName,
   StylePrice
-} from '../styles/CardProductStyle'
+} from '../styles/ProductItemListStyle'
 
-const CardProduct = ({ id, nombre, imagen, precio }) => {
+const ProductItemList = ({ product }) => {
   return (
     <Link
-      to={`/details/${id}`}
-      style={{ textDecoration: 'none' }}
+      to={`/details/${product.id}`}
     >
       <StyledCard>
         <img
-          src={imagen}
-          alt={nombre}
+          src={product.imagen}
+          alt={product.nombre}
           width="80"
           height="80"
         />
 
         <StyleContainerInfo>
           <StyleTitleName>
-            {nombre}
+            {product.nombre}
           </StyleTitleName>
 
           <StylePrice>
-            ${precio} MXN
+            ${product.precio} MXN
           </StylePrice>
         </StyleContainerInfo>
       </StyledCard>
@@ -38,4 +38,4 @@ const CardProduct = ({ id, nombre, imagen, precio }) => {
   )
 }
 
-export default CardProduct
+export default ProductItemList
