@@ -2,12 +2,12 @@
 import React from "react"
 
 // Material UI
-import Badge from '@mui/material/Badge'
+// import Badge from '@mui/material/Badge'
 import ShoppingCartOutlinedIcon from '@mui/icons-material/ShoppingCartOutlined'
 
 // Styles
 import { StyledList, StyledNavbar } from '../styles/NavbarStyle'
-import { styled } from '@mui/material/styles'
+// import { styled } from '@mui/material/styles'
 
 
 // const StyledBadge = styled(Badge)(({ theme }) => ({
