@@ -1,8 +1,6 @@
 // Base
 import React from 'react'
 
-import { Button, ButtonGroup } from '@mui/material'
-
 // Styles
 import {
 	StyleDeleteItem,

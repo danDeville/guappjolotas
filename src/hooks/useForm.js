@@ -1,5 +1,5 @@
 // Base
-import React, { useState } from 'react'
+import { useState } from 'react'
 
 const useForm = (inicialState) => {
   const [values, setValues] = useState(inicialState)
