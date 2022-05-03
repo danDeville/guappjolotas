@@ -12,7 +12,6 @@ import GetByName from "../selectors/getByName"
 //Components
 import CardProduct from "../components/CardProduct"
 
-
 // Material UI Icons
 import SearchIcon from "@mui/icons-material/Search"
 

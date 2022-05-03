@@ -13,7 +13,6 @@ import {
 	StyleOrderItemUnd
 } from '../styles/OrdenItemStyle'
 
-
 const OrderItem = ({ product, children }) => {
 	return (
 		<StyleOrderItemContainer>

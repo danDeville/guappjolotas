@@ -80,6 +80,7 @@ export const StyleCounter = styled.p`
 `
 
 export const StyleContainerButtonShopping = styled.div`
+  z-index: 2;
   position: fixed;
   bottom: 0px;
   left: 0px;

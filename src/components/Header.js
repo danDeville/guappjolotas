@@ -1,23 +1,10 @@
 // Base
 import React from "react"
 
-// Material UI
-// import Badge from '@mui/material/Badge'
-import ShoppingCartOutlinedIcon from '@mui/icons-material/ShoppingCartOutlined'
-
 // Styles
-import { StyledList, StyledNavbar } from '../styles/NavbarStyle'
-// import { styled } from '@mui/material/styles'
+import { StyledNavbar } from '../styles/NavbarStyle'
+import DrawerCart from "./DrawerCart"
 
-
-// const StyledBadge = styled(Badge)(({ theme }) => ({
-//   '& .MuiBadge-badge': {
-//     right: -3,
-//     top: 13,
-//     border: `2px solid ${theme.palette.background.paper}`,
-//     padding: '0 4px',
-//   },
-// }))
 
 const Header = (props) => {
   return (
@@ -28,18 +15,7 @@ const Header = (props) => {
         height="65"
       />
 
-      <StyledList>
-        <li
-          className="navbar-shopping-cart"
-          onClick={() => props.abrirDrawer()}
-        >
-          <ShoppingCartOutlinedIcon color="action" />
-          {/* {state.cart.length > 0
-            ? <StyledBadge badgeContent={state.cart.length} color="primary" />
-            : null
-          } */}
-        </li>
-      </StyledList>
+      <DrawerCart />
     </StyledNavbar>
   )
 }

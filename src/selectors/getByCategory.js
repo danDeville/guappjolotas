@@ -26,3 +26,4 @@ const GetByCategory = (category) => {
 }
 
 export default GetByCategory
+

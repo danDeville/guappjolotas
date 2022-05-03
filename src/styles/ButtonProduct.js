@@ -22,5 +22,5 @@ export const ButtonProductImg = styled.img`
 export const ContainerTitle = styled.h3`
   font-size: 20px;
   font-weight: 600;
-  margin-bottom: 24px;
+  margin-bottom: 24px
 `

@@ -9,7 +9,6 @@ import CardProduct from './CardProduct'
 
 const ListsProduct = ({ category }) => {
   const products = GetByCategory(category)
-  console.table(products)
 
   return (
     <div>

@@ -5,6 +5,14 @@ import axios from 'axios'
 
 // Context
 import { useShopping } from "../context/ShoppingContext"
+
+//Components
+import ButtonGridProduct from '../components/ButtonGridProduct'
+import DrawerCart from '../components/DrawerCart'
+import BebidasGridComplementary from '../components/BebidasGridComplementary'
+import GuajolotasGridComplementary from '../components/GuajolotasGridComplementary'
+
+
 // Material UI
 import Box from '@mui/material/Box'
 import CircularProgress from '@mui/material/CircularProgress'
@@ -14,7 +22,7 @@ import { IconButton } from '@mui/material'
 import ArrowBackIosIcon from '@mui/icons-material/ArrowBackIos'
 
 // Styles
-import { StyleDetailsContainer } from '../styles/DetailStyle'
+import { StyleDetailHeader, StyleDetailsContainer } from '../styles/DetailStyle'
 import {
   StyleButton,
   StyleButtonShopping,
@@ -28,14 +36,13 @@ import {
   StylePriceCard,
   StyleTitleCard
 } from '../styles/CardDetailsProductStyle'
-import ButtonGridProduct from '../components/ButtonGridProduct'
 
 const url = 'https://backend-guappjolotas.herokuapp.com/productos/'
 
 const Details = () => {
+  const navigate = useNavigate()
   const { shoppingCart, setShoppingCart, count, setCount } = useShopping()
   const [disabled, setDisabled] = useState(false)
-  const navigate = useNavigate()
   const [productos, setProductos] = useState([])
   const getProductos = async () => {
     const reponse = await axios.get(url)
@@ -87,9 +94,13 @@ const Details = () => {
 
   return (
     <StyleDetailsContainer>
-      <IconButton aria-label="Arrow Back" onClick={handelReturn}>
-        <ArrowBackIosIcon fontSize="inherit" />
-      </IconButton>
+      <StyleDetailHeader>
+        <IconButton aria-label="Arrow Back" onClick={handelReturn}>
+          <ArrowBackIosIcon fontSize="inherit" />
+        </IconButton>
+
+        <DrawerCart />
+      </StyleDetailHeader>
       {
         getId
           ? (
@@ -151,6 +162,27 @@ const Details = () => {
                   </StyleButtonShopping>
                 </StyleContainerButtonShopping>
               </StyleInfoCard>
+
+              <div
+
+                style={{
+                  marginTop: '2rem',
+                }}
+              >
+                <ButtonGridProduct />
+                {
+                  getId.categoria === 'guajolotas' || getId.categoria === 'tamales'
+                  ? (
+                    <div>
+                      <BebidasGridComplementary />
+                    </div>
+                  ) : (
+                    <div>
+                        <GuajolotasGridComplementary />
+                    </div>
+                  )
+                }
+              </div>
             </StyleCardDetail>
           )
           : (
@@ -173,7 +205,6 @@ const Details = () => {
             </Box>
           )
       }
-      <ButtonGridProduct/>
     </StyleDetailsContainer>
   )
 }

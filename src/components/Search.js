@@ -2,6 +2,9 @@
 import React from 'react'
 
 // Material UI
+import InputBase from '@mui/material/InputBase'
+
+// Material UI
 import SearchIcon from '@mui/icons-material/Search'
 
 import { styled, alpha } from '@mui/material/styles'
